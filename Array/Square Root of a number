@@ -1,0 +1,42 @@
+int floorSqrt(int n)
+{
+   return sqrt(n);
+}
+
+//or
+
+    //Time Complexity: O(log(n))
+    //Space Complexity: O(1)
+
+int floorSqrt(int n){
+
+    // Handle corner case
+    if(n == 0 || n == 1)
+    {
+        return n;
+    }
+
+    // Initialize variable 'low' and 'high' with lower and upper bound of answer
+    int low = 2;
+    int high = n;
+    int mid;
+
+    // Loop while 'low' is less than 'high'
+    while(low < high)
+    {
+        // Calculating 'mid'
+        mid = low + (high - low) / 2;
+
+        
+        if(mid <= (n / mid))
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid;
+        }
+    }
+    return low - 1;
+}
+
