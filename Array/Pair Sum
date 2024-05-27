@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+vector<vector<int>> pairSum(vector<int> &arr, int s){
+   //create vector part and loop for i & j
+
+   vector<vector<int>>ans;
+   for(int i = 0; i<arr.size() ; i++) {
+      for(int j = i+1; j < arr.size(); j++) {
+         //pair of sum
+
+         if(arr[i] + arr[j] == s) {
+            //new vector create 
+            vector<int> temp;
+            //find min and max value 
+            temp.push_back(min(arr[i], arr[j]));
+            temp.push_back(max(arr[i], arr[j]));
+
+            ans.push_back(temp);
+         }
+      }
+   }
+   sort(ans.begin() , ans.end());
+   return ans;
+}
